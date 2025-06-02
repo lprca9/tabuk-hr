@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المنصة الذكية للموارد البشرية - مستشفى الملك فهد التخصصي بتبوك</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Primary colors extracted from reference site */
+      --primary-blue: rgb(28, 76, 165);
+      --primary-dark-blue: rgb(23, 68, 158);
+      --primary-light-blue: rgb(77, 147, 233);
+      --accent-blue: rgb(94, 158, 235);
+      --light-blue: rgb(147, 179, 241);
+      --very-light-blue: rgb(169, 208, 255);
+      
+      /* Text colors */
+      --text-dark: rgb(34, 34, 34);
+      --text-body: rgb(51, 51, 51);
+      --text-light: rgb(85, 85, 85);
+      --text-muted: rgb(153, 153, 153);
+      
+      /* Background colors */
+      --bg-white: rgb(255, 255, 255);
+      --bg-light: rgb(249, 249, 249);
+      --bg-lighter: rgb(247, 247, 247);
+      --bg-lightest: rgb(242, 242, 242);
+      
+      /* Border colors */
+      --border-light: rgb(230, 230, 230);
+      --border-medium: rgb(221, 221, 221);
+      --border-dark: rgb(176, 176, 176);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      color: var(--text-body);
+      line-height: 1.6;
+      background-color: var(--bg-lighter);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Header styles */
+    header {
+      background-color: var(--bg-white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-bar {
+      background-color: var(--bg-lightest);
+      padding: 8px 0;
+      font-size: 14px;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info span {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info i {
+      margin-left: 8px;
+      color: var(--primary-blue);
+    }
+
+    .language-switch {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .language-switch:hover {
+      color: var(--primary-dark-blue);
+      transform: translateY(-2px);
+    }
+
+    .main-header {
+      padding: 15px 0;
+    }
+
+    .main-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo-text {
+      margin-right: 15px;
+    }
+
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 14px;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 25px;
+    }
+
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    nav ul li a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      right: 0;
+      background-color: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--primary-blue);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Hero section */
+    .hero {
+      background-color: var(--primary-blue);
+      color: var(--bg-white);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out reverse;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(50px, 25px) rotate(5deg); }
+      50% { transform: translate(25px, 50px) rotate(0deg); }
+      75% { transform: translate(-25px, 25px) rotate(-5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding-left: 50px;
+      animation: fadeInRight 1s ease-out;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeInLeft 1s ease-out;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Director's message section */
+    .director-message {
+      padding: 80px 0;
+      background-color: var(--bg-white);
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
+
+    .section-title:hover::after {
+      width: 120px;
+    }
+
+    .director-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .director-text {
+      flex: 2;
+      text-align: right;
+      padding-left: 50px;
+    }
+
+    .director-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .director-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-top: 30px;
+      transition: color 0.3s ease;
+    }
+
+    .director-title {
+      font-size: 16px;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+
+    .director-image {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+    }
+
+    .director-image:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px);
+    }
+
+    .director-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.5s ease;
+    }
+
+    .director-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Stats section */
+    .stats {
+      background-color: var(--primary-blue);
+      color: var(--bg-white);
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent);
+      background-size: 100px 100px;
+      opacity: 0.1;
+      animation: backgroundMove 30s linear infinite;
+    }
+
+    @keyframes backgroundMove {
+      from { background-position: 0 0; }
+      to { background-position: 100px 100px; }
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      padding: 20px;
+      transition: all 0.5s ease;
+      animation: fadeInUp 1s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .stat-item:nth-child(1) { animation-delay: 0.1s; }
+    .stat-item:nth-child(2) { animation-delay: 0.3s; }
+    .stat-item:nth-child(3) { animation-delay: 0.5s; }
+    .stat-item:nth-child(4) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stat-item:hover {
+      transform: translateY(-15px);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .stat-number::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--bg-white);
+      transition: width 0.3s ease;
+    }
+
+    .stat-item:hover .stat-number::after {
+      width: 50px;
+    }
+
+    .stat-label {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* Services section */
+    .services {
+      padding: 80px 0;
+      background-color: var(--bg-lighter);
+      text-align: center;
+    }
+
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .service-item {
+      flex: 0 0 calc(20% - 30px);
+      min-width: 200px;
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+      animation: fadeInUp 1s ease-out;
+      animation-fill-mode: both;
+      text-decoration: none;
+      display: block;
+    }
+
+    .service-item:nth-child(1) { animation-delay: 0.1s; }
+    .service-item:nth-child(2) { animation-delay: 0.3s; }
+    .service-item:nth-child(3) { animation-delay: 0.5s; }
+    .service-item:nth-child(4) { animation-delay: 0.7s; }
+    .service-item:nth-child(5) { animation-delay: 0.9s; }
+
+    .service-item:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-blue);
+      color: var(--bg-white);
+      font-size: 36px;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover .service-icon {
+      background-color: var(--primary-dark-blue);
+    }
+
+    .service-info {
+      padding: 20px;
+    }
+
+    .service-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .service-item:hover .service-title {
+      color: var(--primary-dark-blue);
+    }
+
+    .service-description {
+      font-size: 14px;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+
+    .service-item:hover .service-description {
+      color: var(--text-dark);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-dark-blue);
+      color: var(--bg-white);
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+    }
+
+    .footer-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-blue);
+    }
+
+    .footer-contact p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-contact i {
+      margin-left: 10px;
+      color: var(--accent-blue);
+    }
+
+    .social-links {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-left: 10px;
+      color: var(--bg-white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: var(--accent-blue);
+      transform: translateY(-5px);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links ul li a {
+      color: var(--bg-white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--accent-blue);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text {
+        padding-left: 0;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      .hero-image {
+        width: 100%;
+      }
+      
+      .director-content {
+        flex-direction: column-reverse;
+      }
+      
+      .director-text {
+        padding-left: 0;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .stats-container {
+        flex-wrap: wrap;
+      }
+      
+      .stat-item {
+        flex: 0 0 50%;
+      }
+      
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: var(--bg-white);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      
+      nav ul {
+        flex-direction: column;
+      }
+      
+      nav ul li {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .director-image {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .footer-column {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .top-bar .container {
+        flex-direction: column;
+      }
+      
+      .contact-info {
+        margin-bottom: 10px;
+      }
+      
+      .hero-title {
+        font-size: 28px;
+      }
+      
+      .hero-subtitle {
+        font-size: 16px;
+      }
+      
+      .stat-item {
+        flex: 0 0 100%;
+      }
+      
+      .director-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="contact-info">
+          <span><i class="fas fa-clock"></i> 24/7</span>
+          <span><i class="fas fa-phone"></i> 920022231</span>
+        </div>
+        <a href="index.html#" class="language-switch">English</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <div class="container">
+        <div class="logo">
+          <img src="https://uxjvivmg.manus.space/images/hospital.jpeg" alt="مستشفى الملك فهد التخصصي بتبوك">
+          <div class="logo-text">
+            <h1>المنصة الذكية للموارد البشرية</h1>
+            <p>مستشفى الملك فهد التخصصي بتبوك</p>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="index.html#">الخدمات الإلكترونية</a></li>
+            <li><a href="support.html">الدعم الفني</a></li>
+            <li><a href="index.html#">اتصل بنا</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2 class="hero-title">المنصة الذكية للموارد البشرية</h2>
+          <p class="hero-subtitle">منصة متكاملة لخدمات الموارد البشرية تهدف إلى تسهيل وتسريع الإجراءات وتحسين تجربة الموظفين في مستشفى الملك فهد التخصصي بتبوك</p>
+        </div>
+        <div class="hero-image">
+          <img src="https://uxjvivmg.manus.space/images/hospital.jpeg" alt="مستشفى الملك فهد التخصصي بتبوك">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Director's Message Section -->
+  <section class="director-message">
+    <div class="container">
+      <h2 class="section-title">كلمة مديرة المستشفى</h2>
+      <div class="director-content">
+        <div class="director-text">
+          <p>نسعى في مستشفى الملك فهد التخصصي بتبوك إلى تقديم أفضل الخدمات الصحية لمواطني ومقيمي المنطقة، ونؤمن بأن موظفينا هم أساس نجاحنا وتميزنا. من هذا المنطلق، تأتي المنصة الذكية للموارد البشرية لتكون أداة فعالة في تطوير بيئة العمل وتحسين الخدمات المقدمة لمنسوبي المستشفى.</p>
+          <div class="director-name">د. أميرة أحمد البلوي</div>
+          <div class="director-title">مديرة مستشفى الملك فهد التخصصي بتبوك</div>
+        </div>
+        <div class="director-image">
+          <img src="images/director.jpeg" alt="د. أميرة أحمد البلوي">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">2100</div>
+          <div class="stat-label">عدد الموظفين</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500</div>
+          <div class="stat-label">عدد الأسرة</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">980000</div>
+          <div class="stat-label">عدد المستفيدين</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">+20</div>
+          <div class="stat-label">عدد الجوائز والاعتمادات</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">الخدمات الإلكترونية</h2>
+      <div class="services-container">
+        <a href="https://mawared.moh.gov.sa/" target="_blank" class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">موارد</h3>
+            <p class="service-description">نظام إدارة الموارد البشرية</p>
+          </div>
+        </a>
+        <a href="https://owa.moh.gov.sa/" target="_blank" class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">البريد الإلكتروني</h3>
+            <p class="service-description">خدمة البريد الإلكتروني الرسمي</p>
+          </div>
+        </a>
+        <a href="https://bain.moh.gov.sa/" target="_blank" class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">بين</h3>
+            <p class="service-description">منصة التواصل الداخلي</p>
+          </div>
+        </a>
+        <a href="https://hsp.moh.gov.sa/" target="_blank" class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">سهل</h3>
+            <p class="service-description">نظام الخدمات الإلكترونية</p>
+          </div>
+        </a>
+        <a href="https://itsm-sso.moh.gov.sa/" target="_blank" class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <div class="service-info">
+            <h3 class="service-title">شهم</h3>
+            <p class="service-description">منصة التطوع الصحي</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column footer-contact">
+          <h3 class="footer-title">المنصة الذكية للموارد البشرية</h3>
+          <p><i class="fas fa-map-marker-alt"></i> مستشفى الملك فهد التخصصي بتبوك</p>
+          <p><i class="fas fa-envelope"></i> Tb-kfh-hr@moh.gov.sa</p>
+          <p><i class="fas fa-phone"></i> 920022231</p>
+          <div class="social-links">
+            <a href="index.html#"><i class="fab fa-twitter"></i></a>
+            <a href="index.html#"><i class="fab fa-linkedin"></i></a>
+            <a href="index.html#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column footer-links">
+          <h3 class="footer-title">روابط سريعة</h3>
+          <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="index.html#">الخدمات الإلكترونية</a></li>
+            <li><a href="support.html">الدعم الفني</a></li>
+            <li><a href="index.html#">اتصل بنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-column footer-links">
+          <h3 class="footer-title">خدماتنا</h3>
+          <ul>
+            <li><a href="https://mawared.moh.gov.sa/" target="_blank">موارد</a></li>
+            <li><a href="https://owa.moh.gov.sa/" target="_blank">البريد الإلكتروني</a></li>
+            <li><a href="https://bain.moh.gov.sa/" target="_blank">بين</a></li>
+            <li><a href="https://hsp.moh.gov.sa/" target="_blank">سهل</a></li>
+            <li><a href="https://itsm-sso.moh.gov.sa/" target="_blank">شهم</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 المنصة الذكية للموارد البشرية - مستشفى الملك فهد التخصصي بتبوك. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      const nav = document.querySelector('nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Add animation class to elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate stats counter
+      const statNumbers = document.querySelectorAll('.stat-number');
+      statNumbers.forEach(stat => {
+        const target = parseInt(stat.textContent.replace(/\D/g, ''));
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 20); // Update every 20ms
+        let current = 0;
+        
+        const counter = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            if (stat.textContent.includes('+')) {
+              stat.textContent = '+' + target;
+            } else {
+              stat.textContent = target;
+            }
+            clearInterval(counter);
+          } else {
+            if (stat.textContent.includes('+')) {
+              stat.textContent = '+' + Math.floor(current);
+            } else {
+              stat.textContent = Math.floor(current);
+            }
+          }
+        }, 20);
+      });
+    });
+  </script>
+</body>
+</html>
